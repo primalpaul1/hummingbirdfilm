@@ -195,11 +195,13 @@ h2{font-family:'Fraunces',serif;font-weight:420;font-size:clamp(34px,4.6vw,58px)
 .pod-card{cursor:pointer}
 .pod-links{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
 .pod-links a{
+  display:inline-flex;align-items:center;gap:7px;
   font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;text-decoration:none;
-  color:var(--gold);padding:5px 12px;border-radius:99px;border:1px solid rgba(240,180,41,.35);
+  color:var(--gold);padding:5px 12px 5px 8px;border-radius:99px;border:1px solid rgba(240,180,41,.35);
   transition:background .25s,color .25s;
 }
 .pod-links a:hover{background:var(--gold);color:#191204}
+.pod-links a img{width:17px;height:17px;border-radius:4px}
 .pod-empty{
   border:1px dashed rgba(196,178,134,.28);border-radius:16px;padding:44px 30px;text-align:center;
   color:var(--cream-dim);font-style:italic;font-size:17px;grid-column:1/-1;
@@ -649,6 +651,7 @@ const PODCASTS = [
     links: {
       Fountain: "https://fountain.fm/episode/VzmUZwpCiSNbYtyx0A2x",
       Apple: "https://podcasts.apple.com/us/podcast/160-of-eagles-and-condors-with/id1691033484?i=1000769884639",
+      Spotify: "https://open.spotify.com/episode/6bXCYYFuqPLJcpUA41OIve",
     },
   },
   {
@@ -658,10 +661,16 @@ const PODCASTS = [
     links: {
       Fountain: "https://fountain.fm/episode/BAfFbucAWRqROVhM1jSN",
       Apple: "https://podcasts.apple.com/us/podcast/inside-costa-ricas-bitcoin-jungle/id1794318447?i=1000775649756",
+      Spotify: "https://open.spotify.com/episode/3JhrmZ79r7SUzLj85GgPl9",
     },
   },
 ];
 
+const POD_ICONS = {
+  Fountain: "assets/pod-fountain.png",
+  Apple: "assets/pod-apple.png",
+  Spotify: "assets/pod-spotify.png",
+};
 const podGrid = document.getElementById('podGrid');
 if (!PODCASTS.length) {
   podGrid.innerHTML = `<div class="pod-empty reveal"><span class="mic">🎙️</span>Episodes landing here soon — the tribe has stories to tell.</div>`;
@@ -678,7 +687,7 @@ if (!PODCASTS.length) {
         <div class="title">${p.title}</div>
         <div class="date">${p.date || ''}</div>
         <div class="pod-links">${Object.entries(p.links || {}).map(([label, url]) =>
-          `<a href="${url}" target="_blank" rel="noopener">${label} ↗</a>`).join('')}</div>
+          `<a href="${url}" target="_blank" rel="noopener">${POD_ICONS[label] ? `<img src="${POD_ICONS[label]}" alt="">` : ''}${label}</a>`).join('')}</div>
       </span>`;
     if (first) el.addEventListener('click', e => {
       if (e.target.closest('a')) return;
