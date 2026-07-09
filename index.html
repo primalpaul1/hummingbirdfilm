@@ -227,6 +227,22 @@ h2{font-family:'Fraunces',serif;font-weight:420;font-size:clamp(34px,4.6vw,58px)
   display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
   gap:clamp(24px,3.4vw,40px);margin-top:clamp(40px,5vh,60px);
 }
+.eyebrow-solo{font-size:clamp(38px,5vw,52px);margin-bottom:14px}
+/* mobile: two cast cards side by side */
+@media(max-width:700px){
+  .cast-grid{grid-template-columns:repeat(2,1fr);gap:14px}
+  .person{padding:22px 10px 18px}
+  .halo{width:112px;height:112px;margin-bottom:14px;padding:4px}
+  .halo .ring{padding:3px}
+  .person h3{font-size:18px}
+  .person .role{font-size:16px;margin:1px 0 6px}
+  .socials{gap:7px;margin-top:10px}
+  .soc{width:31px;height:31px}
+  .soc svg{width:13px;height:13px}
+  .soc img{width:16px;height:16px}
+  .person .bio{font-size:14px}
+  .bio-hint{font-size:10px;letter-spacing:.18em}
+}
 .person{
   text-align:center;padding:34px 22px 26px;border-radius:18px;cursor:pointer;
   background:linear-gradient(160deg, rgba(22,36,27,.55), rgba(14,24,17,.3));
@@ -367,7 +383,7 @@ footer .wordmark{font-size:38px}
   <a class="wordmark" href="#top">Hummingbird</a>
   <div class="navlinks">
     <a href="#trailer">Trailer</a>
-    <a href="#cast">Cast &amp; Crew</a>
+    <a href="#cast">The Tribe</a>
     <a href="#journal">Journal</a>
     <a href="#podcasts">Podcasts</a>
     <a href="#feed">Feed</a>
@@ -425,8 +441,7 @@ footer .wordmark{font-size:38px}
 <section id="cast">
   <div class="shell">
     <div class="reveal">
-      <div class="eyebrow">the tribe</div>
-      <h2>Cast &amp; Crew</h2>
+      <div class="eyebrow eyebrow-solo">the tribe</div>
       <p class="lede">The faces of the jungle. Tap a portrait to read their story.</p>
     </div>
     <div class="cast-grid" id="castGrid"></div>
@@ -516,25 +531,6 @@ footer .wordmark{font-size:38px}
 ============================================================= */
 const CAST = [
   {
-    name: "Francis Pouliot",
-    role: "Founder, Bull Bitcoin",
-    photo: "assets/francis_sq.jpg",
-    pos: "50% 30%",
-    bio: null,
-    links: [
-      {type: "primal", url: "https://primal.net/francis"},
-      {type: "x", url: "https://x.com/francispouliot_"},
-    ],
-  },
-  {
-    name: "Richard",
-    role: "Educator",
-    photo: "assets/richard_sq.jpg",
-    pos: "50% 38%",
-    bio: null,
-    links: [],
-  },
-  {
     name: "Keyna Aguilar",
     role: "Market Founder",
     photo: "assets/keyna_sq.jpg",
@@ -552,6 +548,17 @@ const CAST = [
     bio: null,
     links: [
       {type: "ig", url: "https://www.instagram.com/ecoferiadominical/"},
+    ],
+  },
+  {
+    name: "Francis Pouliot",
+    role: "Founder, Bull Bitcoin",
+    photo: "assets/francis_sq.jpg",
+    pos: "50% 30%",
+    bio: null,
+    links: [
+      {type: "primal", url: "https://primal.net/francis"},
+      {type: "x", url: "https://x.com/francispouliot_"},
     ],
   },
   {
@@ -587,6 +594,14 @@ const CAST = [
       {type: "primal", url: "https://primal.net/directorhodl"},
       {type: "x", url: "https://x.com/directorhodl"},
     ],
+  },
+  {
+    name: "Richard",
+    role: "Educator",
+    photo: "assets/richard_sq.jpg",
+    pos: "50% 38%",
+    bio: null,
+    links: [],
   },
   {
     name: "Govinda",
@@ -632,12 +647,6 @@ CAST.forEach((p, i) => {
   });
   grid.appendChild(el);
 });
-// ghost card for people yet to come
-const ghost = document.createElement('div');
-ghost.className = 'person ghost reveal';
-ghost.style.transitionDelay = (CAST.length * .07) + 's';
-ghost.innerHTML = `<div class="ghost-circle">+</div><p>More of the tribe landing here soon…</p>`;
-grid.appendChild(ghost);
 
 /* =============================================================
    PODCASTS — add episodes here as they land.

@@ -50,3 +50,10 @@
 {"ts":"2026-07-09T12:46:58.992Z","cmd":"viewport","args":"390x844","origin":"http://localhost:4870/","durationMs":6,"status":"ok","hasCookies":false,"mode":"launched"}
 {"ts":"2026-07-09T12:46:59.051Z","cmd":"goto","args":"http://localhost:4870","origin":"http://localhost:4870/","durationMs":16,"status":"ok","hasCookies":false,"mode":"launched"}
 {"ts":"2026-07-09T12:47:01.153Z","cmd":"screenshot","args":"--viewport /private/tmp/claude-501/-Users-paulkeating/a74eadb4-c16f-4c51-a496-c791e58d1d4c/scratchpad/mob-hero3.png","origin":"http://localhost:4870/","durationMs":48,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-09T13:08:15.514Z","cmd":"goto","args":"http://localhost:4870","origin":"http://localhost:4870/","durationMs":25,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-09T13:08:17.565Z","cmd":"js","args":"document.getElementById('cast').scrollIntoView(); 'ok'","origin":"http://localhost:4870/","durationMs":1,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-09T13:08:18.994Z","cmd":"screenshot","args":"--viewport /private/tmp/claude-501/-Users-paulkeating/a74eadb4-c16f-4c51-a496-c791e58d1d4c/scratchpad/mob-cast2.png","origin":"http://localhost:4870/","durationMs":77,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-09T13:09:00.869Z","cmd":"viewport","args":"1440x900","origin":"http://localhost:4870/","durationMs":6,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-09T13:09:00.922Z","cmd":"reload","args":"","origin":"http://localhost:4870/","durationMs":10,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-09T13:09:02.968Z","cmd":"js","args":"document.getElementById('cast').scrollIntoView(); 'ok'","origin":"http://localhost:4870/","durationMs":0,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-09T13:09:04.533Z","cmd":"screenshot","args":"--viewport /private/tmp/claude-501/-Users-paulkeating/a74eadb4-c16f-4c51-a496-c791e58d1d4c/scratchpad/desk-cast3.png","origin":"http://localhost:4870/","durationMs":218,"status":"ok","hasCookies":false,"mode":"launched"}
