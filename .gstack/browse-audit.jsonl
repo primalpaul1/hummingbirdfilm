@@ -47,3 +47,6 @@
 {"ts":"2026-07-09T12:38:46.272Z","cmd":"console","args":"--errors","origin":"http://localhost:4870/","durationMs":0,"status":"ok","hasCookies":false,"mode":"launched"}
 {"ts":"2026-07-09T12:38:46.312Z","cmd":"js","args":"document.getElementById('podcasts').scrollIntoView(); 'chips: '+document.querySelectorAll('.pod-links a').length","origin":"http://localhost:4870/","durationMs":1,"status":"ok","hasCookies":false,"mode":"launched"}
 {"ts":"2026-07-09T12:38:47.708Z","cmd":"screenshot","args":"--viewport /private/tmp/claude-501/-Users-paulkeating/a74eadb4-c16f-4c51-a496-c791e58d1d4c/scratchpad/pods4.png","origin":"http://localhost:4870/","durationMs":151,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-09T12:46:58.992Z","cmd":"viewport","args":"390x844","origin":"http://localhost:4870/","durationMs":6,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-09T12:46:59.051Z","cmd":"goto","args":"http://localhost:4870","origin":"http://localhost:4870/","durationMs":16,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-09T12:47:01.153Z","cmd":"screenshot","args":"--viewport /private/tmp/claude-501/-Users-paulkeating/a74eadb4-c16f-4c51-a496-c791e58d1d4c/scratchpad/mob-hero3.png","origin":"http://localhost:4870/","durationMs":48,"status":"ok","hasCookies":false,"mode":"launched"}
