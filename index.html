@@ -265,6 +265,8 @@ h2{font-family:'Fraunces',serif;font-weight:420;font-size:clamp(34px,4.6vw,58px)
   max-height:0;overflow:hidden;opacity:0;transition:max-height .5s cubic-bezier(.2,.7,.2,1),opacity .45s,margin .4s;
 }
 .person.open .bio{max-height:260px;opacity:1;margin-top:6px}
+.person .bio a{color:var(--gold-bright);text-decoration:none;border-bottom:1px solid rgba(255,201,74,.35)}
+.person .bio a:hover{border-bottom-color:var(--gold-bright)}
 .socials{display:flex;gap:10px;justify-content:center;margin-top:14px}
 .soc{
   width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;
@@ -535,9 +537,10 @@ const CAST = [
     role: "Market Founder",
     photo: "assets/keyna_sq.jpg",
     pos: "50% 40%",
-    bio: null,
+    bio: 'Co-founder of <a href="https://ecoferiadominical.com" target="_blank" rel="noopener">Eco Feria Dominical</a> — connecting with local farmers who strive to produce the best produce, regenerate ecosystems, and build vibrant local communities.',
     links: [
       {type: "ig", url: "https://www.instagram.com/ecoferiadominical/"},
+      {type: "web", url: "https://ecoferiadominical.com"},
     ],
   },
   {
@@ -545,9 +548,10 @@ const CAST = [
     role: "Market Founder",
     photo: "assets/estela_sq.jpg",
     pos: "50% 28%",
-    bio: null,
+    bio: '“La Abuelita del Bitcoin.” Estela co-founded the <a href="https://ecoferiadominical.com" target="_blank" rel="noopener">Eco Feria Dominical</a> with her daughter Keyna.',
     links: [
       {type: "ig", url: "https://www.instagram.com/ecoferiadominical/"},
+      {type: "web", url: "https://ecoferiadominical.com"},
     ],
   },
   {
@@ -555,7 +559,7 @@ const CAST = [
     role: "Founder, Bull Bitcoin",
     photo: "assets/francis_sq.jpg",
     pos: "50% 30%",
-    bio: null,
+    bio: 'Founder of <a href="https://bullbitcoin.com" target="_blank" rel="noopener">Bull Bitcoin</a>. A bitcoin OG building tools for anyone to take control over their own money.',
     links: [
       {type: "primal", url: "https://primal.net/francis"},
       {type: "x", url: "https://x.com/francispouliot_"},
@@ -566,18 +570,19 @@ const CAST = [
     role: "Developer",
     photo: "assets/lee_sq.jpg",
     pos: "50% 42%",
-    bio: null,
+    bio: 'Lee created the <a href="https://www.bitcoinjungle.app" target="_blank" rel="noopener">Bitcoin Jungle app</a> — the wallet in every pocket of the jungle.',
     links: [
       {type: "primal", url: "https://primal.net/bitcoinjungle"},
       {type: "x", url: "https://x.com/BitcoinJungleCR"},
+      {type: "web", url: "https://www.bitcoinjungle.app"},
     ],
   },
   {
     name: "Paul Keating",
-    role: "",
+    role: "Marketing Lead, Primal",
     photo: "assets/paul_sq.jpg",
     pos: "50% 40%",
-    bio: null,
+    bio: 'Marketing lead at <a href="https://primal.net" target="_blank" rel="noopener">Primal</a>. He\'s been living in the Bitcoin Jungle for over four years and is passionate about bitcoin.',
     links: [
       {type: "primal", url: "https://primal.net/paul"},
       {type: "ig", url: "https://www.instagram.com/paulinthejungle/"},
@@ -589,7 +594,7 @@ const CAST = [
     role: "Director",
     photo: "assets/directorhodl_sq.jpg",
     pos: "50% 45%",
-    bio: null,
+    bio: 'Matt Hornick, the film\'s director — musician, skateboarder, and hardcore bitcoiner. <a href="https://primal.net/directorhodl" target="_blank" rel="noopener">Check out his work</a>.',
     links: [
       {type: "primal", url: "https://primal.net/directorhodl"},
       {type: "x", url: "https://x.com/directorhodl"},
@@ -600,18 +605,21 @@ const CAST = [
     role: "Educator",
     photo: "assets/richard_sq.jpg",
     pos: "50% 38%",
-    bio: null,
-    links: [],
+    bio: 'One of the founders of Bitcoin Jungle. His article <a href="https://www.bitcoinjungle.app/post/why-coders-can-be-shamans-and-the-ancient-prophecy-of-the-hummingbird-tribe-powered-by-bitcoin" target="_blank" rel="noopener">“Why Coders Can Be Shamans”</a> largely inspired the movement.',
+    links: [
+      {type: "x", url: "https://x.com/richscottford"},
+    ],
   },
   {
     name: "Govinda",
-    role: "",
+    role: "Founder, Awake",
     photo: "assets/govinda_sq.jpg",
     pos: "50% 40%",
-    bio: null,
+    bio: 'Founder of <a href="https://www.awake.cr" target="_blank" rel="noopener">Awake</a>, where much of the film was shot — home of the first Nostr conference and the Bitcoin Freedom Fest.',
     links: [
       {type: "primal", url: "https://primal.net/govinda"},
       {type: "x", url: "https://x.com/AlexisGovinda"},
+      {type: "web", url: "https://www.awake.cr"},
     ],
   },
 ];
@@ -620,8 +628,9 @@ const SOC_ICONS = {
   x: `<svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.451-6.231zm-1.161 17.52h1.833L7.084 4.126H5.117l11.966 15.644z"/></svg>`,
   ig: `<svg class="stroke" viewBox="0 0 24 24"><rect x="2.5" y="2.5" width="19" height="19" rx="5.2"/><circle cx="12" cy="12" r="4.3"/><circle cx="17.4" cy="6.6" r="1.05" fill="currentColor" stroke="none"/></svg>`,
   primal: `<img src="assets/primal.png" alt="Primal">`,
+  web: `<svg class="stroke" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5"/><path d="M2.5 12h19M12 2.5c-5.6 5.5-5.6 13.5 0 19M12 2.5c5.6 5.5 5.6 13.5 0 19"/></svg>`,
 };
-const socLabel = {x: "on X", ig: "on Instagram", primal: "on Primal"};
+const socLabel = {x: "on X", ig: "on Instagram", primal: "on Primal", web: "website"};
 
 const grid = document.getElementById('castGrid');
 CAST.forEach((p, i) => {
