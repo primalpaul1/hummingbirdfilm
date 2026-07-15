@@ -218,6 +218,18 @@ h2{font-family:'Fraunces',serif;font-weight:420;font-size:clamp(34px,4.6vw,58px)
   content:"🧡";position:absolute;top:-24px;right:-14px;font-size:110px;opacity:.07;transform:rotate(14deg);
 }
 .support-box p{color:var(--cream-dim);font-size:clamp(17px,1.4vw,19px);max-width:460px;margin:0 auto 26px}
+.donate-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:12px;margin-bottom:16px}
+.don-btn{
+  width:100%;padding:15px 10px;border-radius:14px;cursor:pointer;
+  font-family:'Alegreya Sans',sans-serif;font-weight:700;font-size:15px;letter-spacing:.1em;text-transform:uppercase;
+  background:rgba(240,180,41,.1);color:var(--gold-bright);border:1px solid rgba(240,180,41,.45);
+  transition:background .25s,color .25s,transform .25s;
+}
+.don-btn:hover{background:var(--gold);color:#191204;transform:translateY(-2px)}
+.don-custom{width:100%;justify-content:center;margin-top:2px}
+.pay-methods{margin-top:22px;font-size:14.5px;color:var(--cream-dim);letter-spacing:.04em}
+.pay-methods a{color:var(--gold-bright);text-decoration:none;border-bottom:1px solid rgba(255,201,74,.35)}
+@media(max-width:700px){.donate-grid{grid-template-columns:1fr 1fr}}
 #support .eyebrow,#support h2{text-align:center}
 #support .lede{margin:0 auto}
 
@@ -489,11 +501,30 @@ footer .wordmark{font-size:38px}
   <div class="shell">
     <div class="reveal">
       <div class="eyebrow">keep it humming</div>
-      <h2>Support the Film</h2>
+      <h2>Support the Filmmakers</h2>
     </div>
     <div class="support-box reveal" style="transition-delay:.1s">
-      <p>Ways to support Hummingbird are landing here soon. In the meantime, every zap keeps the wings beating.</p>
-      <a class="btn btn-gold" href="https://primal.net/hummingbird" target="_blank" rel="noopener">⚡ Zap us on Primal</a>
+      <p>Hummingbird is independent, value-for-value cinema. Every sat goes to the crew who made it.</p>
+      <div class="donate-grid">
+        <form method="POST" action="https://btcpayserver.bitcoinjungle.app/apps/3oVdmoKjCASu6cEXEcQgfCRgz9D8/pos" target="_blank">
+          <input type="hidden" name="amount" value="10">
+          <button class="don-btn" type="submit">Donate $10</button>
+        </form>
+        <form method="POST" action="https://btcpayserver.bitcoinjungle.app/apps/3oVdmoKjCASu6cEXEcQgfCRgz9D8/pos" target="_blank">
+          <input type="hidden" name="amount" value="20">
+          <button class="don-btn" type="submit">Donate $20</button>
+        </form>
+        <form method="POST" action="https://btcpayserver.bitcoinjungle.app/apps/3oVdmoKjCASu6cEXEcQgfCRgz9D8/pos" target="_blank">
+          <input type="hidden" name="amount" value="50">
+          <button class="don-btn" type="submit">Donate $50</button>
+        </form>
+        <form method="POST" action="https://btcpayserver.bitcoinjungle.app/apps/3oVdmoKjCASu6cEXEcQgfCRgz9D8/pos" target="_blank">
+          <input type="hidden" name="amount" value="100">
+          <button class="don-btn" type="submit">Donate $100</button>
+        </form>
+      </div>
+      <a class="btn btn-gold don-custom" href="https://btcpayserver.bitcoinjungle.app/apps/3oVdmoKjCASu6cEXEcQgfCRgz9D8/pos" target="_blank" rel="noopener">Enter an amount</a>
+      <div class="pay-methods">⚡ Lightning &nbsp;·&nbsp; ⛓️ On-chain &nbsp;·&nbsp; or <a href="https://primal.net/hummingbird" target="_blank" rel="noopener">zap us on Primal</a></div>
     </div>
   </div>
 </section>
