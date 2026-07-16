@@ -302,13 +302,6 @@ h2{font-family:'Fraunces',serif;font-weight:420;font-size:clamp(34px,4.6vw,58px)
   transition:transform .6s cubic-bezier(.2,.7,.2,1);
 }
 .person:hover .face img{transform:scale(1.045)}
-.face::after{
-  content:"";position:absolute;left:0;right:0;bottom:0;height:34%;pointer-events:none;
-  -webkit-backdrop-filter:blur(9px);backdrop-filter:blur(9px);
-  -webkit-mask-image:linear-gradient(to bottom, transparent, black 78%);
-  mask-image:linear-gradient(to bottom, transparent, black 78%);
-  background:linear-gradient(to top, rgba(14,24,17,.55), transparent 75%);
-}
 .person h3,.person .role,.person .bio,.person .socials,.person .bio-hint{padding-left:16px;padding-right:16px}
 .person h3{font-family:'Fraunces',serif;font-weight:520;font-size:23px;letter-spacing:.01em}
 .person .role{font-family:'Yellowtail',cursive;color:var(--gold);font-size:19px;margin:2px 0 10px}
@@ -786,7 +779,7 @@ const SUPPORT_CARDS = [
       {photo: "assets/keyna_sq.jpg", pos: "50% 40%", alt: "Keyna Aguilar"},
     ],
     blurb: "Every sat goes to Estela and Keyna's Eco Feria, the market at the heart of the jungle.",
-    pos: null,
+    pos: "https://btcpayserver.bitcoinjungle.app/apps/2PLC8JWoNL7eKVrtequSwqCzcm5R/pos",
   },
   {
     title: "Support the Filmmakers",
