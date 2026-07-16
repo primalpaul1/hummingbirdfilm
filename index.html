@@ -354,10 +354,17 @@ h2{font-family:'Fraunces',serif;font-weight:420;font-size:clamp(34px,4.6vw,58px)
 }
 
 /* ---- journal / blog ---- */
+.journal-track{
+  display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;
+  scrollbar-width:none;-webkit-overflow-scrolling:touch;
+  margin-top:clamp(36px,5vh,54px);padding:2px;
+}
+.journal-track::-webkit-scrollbar{display:none}
+.journal-slide{flex:0 0 100%;scroll-snap-align:center;min-width:0}
 .journal-card{
   display:grid;grid-template-columns:340px 1fr;border-radius:20px;overflow:hidden;text-decoration:none;
   background:linear-gradient(150deg, var(--panel2), var(--panel));border:1px solid var(--line);
-  box-shadow:var(--shadow);margin-top:clamp(36px,5vh,54px);
+  box-shadow:var(--shadow);
   transition:transform .35s cubic-bezier(.2,.7,.2,1),border-color .35s;
 }
 .journal-card:hover{transform:translateY(-5px);border-color:rgba(240,180,41,.45)}
@@ -505,24 +512,49 @@ footer .wordmark{font-size:38px}
   </div>
 </section>
 
+<!-- ================= SUPPORT ================= -->
+<section id="support">
+  <div class="shell">
+    <div class="reveal">
+      <div class="eyebrow">keep it humming</div>
+      <h2>Support</h2>
+    </div>
+    <div class="support-grid" id="supportGrid"></div>
+  </div>
+</section>
+
 <!-- ================= JOURNAL ================= -->
 <section id="journal">
   <div class="shell">
     <div class="reveal">
-      <div class="eyebrow">from the director's desk</div>
-      <h2>Behind the Scenes</h2>
+      <div class="eyebrow">stories from the jungle</div>
+      <h2>The Journal</h2>
     </div>
-    <a class="journal-card reveal" style="transition-delay:.1s" href="https://primal.net/directorhodl/hummingbird-behind-the-scenes" target="_blank" rel="noopener">
-      <div class="journal-art"><img src="assets/blog.jpg" alt="Hummingbird behind the scenes" loading="lazy"></div>
-      <div class="journal-body">
-        <div class="journal-tag">Long-form · on Nostr</div>
-        <h3>Hummingbird: Behind The Scenes</h3>
-        <p>The backstory behind the creation of our film Hummingbird: The Bitcoin Jungle Story — how it was shot, why it exists, and what the jungle taught us.</p>
-        <span class="journal-link">Read on Primal
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </span>
-      </div>
-    </a>
+    <div class="journal-track reveal" style="transition-delay:.1s" id="journalTrack">
+      <a class="journal-card journal-slide" href="https://primal.net/directorhodl/hummingbird-behind-the-scenes" target="_blank" rel="noopener">
+        <div class="journal-art"><img src="assets/blog.jpg" alt="Hummingbird behind the scenes" loading="lazy"></div>
+        <div class="journal-body">
+          <div class="journal-tag">DirectorHodl · on Nostr</div>
+          <h3>Hummingbird: Behind The Scenes</h3>
+          <p>The backstory behind the creation of our film Hummingbird: The Bitcoin Jungle Story — how it was shot, why it exists, and what the jungle taught us.</p>
+          <span class="journal-link">Read on Primal
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </span>
+        </div>
+      </a>
+      <a class="journal-card journal-slide" href="https://www.bitcoinjungle.app/post/why-coders-can-be-shamans-and-the-ancient-prophecy-of-the-hummingbird-tribe-powered-by-bitcoin" target="_blank" rel="noopener">
+        <div class="journal-art"><img src="assets/shamans.jpg" alt="Why coders can be shamans" loading="lazy"></div>
+        <div class="journal-body">
+          <div class="journal-tag">Richard · Bitcoin Jungle</div>
+          <h3>Why Coders Can Be Shamans</h3>
+          <p>The ancient prophecy of the Hummingbird Tribe, powered by Bitcoin — the article that inspired the movement, from the Golden Triangle of Dominical, Uvita, Ojochal and Tinamaste.</p>
+          <span class="journal-link">Read the article
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </span>
+        </div>
+      </a>
+    </div>
+    <div class="tdots" id="jDots"></div>
   </div>
 </section>
 
@@ -538,16 +570,6 @@ footer .wordmark{font-size:38px}
   </div>
 </section>
 
-<!-- ================= SUPPORT ================= -->
-<section id="support">
-  <div class="shell">
-    <div class="reveal">
-      <div class="eyebrow">keep it humming</div>
-      <h2>Support</h2>
-    </div>
-    <div class="support-grid" id="supportGrid"></div>
-  </div>
-</section>
 
 <!-- ================= NOSTR FEED ================= -->
 <section id="feed">
@@ -880,6 +902,25 @@ document.getElementById('tPrev').addEventListener('click', () =>
 document.getElementById('tNext').addEventListener('click', () =>
   track.scrollTo({left: (track.clientWidth + 18) * Math.min(VIDEOS.length - 1, slideIndex() + 1), behavior: 'smooth'}));
 
+/* ---------------- journal carousel dots ---------------- */
+const jTrack = document.getElementById('journalTrack');
+const jDots = document.getElementById('jDots');
+[...jTrack.children].forEach((_, i) => {
+  const d = document.createElement('button');
+  if (i === 0) d.className = 'on';
+  d.setAttribute('aria-label', 'Article ' + (i + 1));
+  d.addEventListener('click', () => jTrack.scrollTo({left: (jTrack.clientWidth + 18) * i, behavior: 'smooth'}));
+  jDots.appendChild(d);
+});
+let jScrollT;
+jTrack.addEventListener('scroll', () => {
+  clearTimeout(jScrollT);
+  jScrollT = setTimeout(() => {
+    const idx = Math.round(jTrack.scrollLeft / (jTrack.clientWidth + 18));
+    jDots.querySelectorAll('button').forEach((d, i) => d.classList.toggle('on', i === idx));
+  }, 90);
+}, {passive: true});
+
 /* ---------------- nav + reveals ---------------- */
 const nav = document.getElementById('nav');
 addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 40), { passive: true });
@@ -921,7 +962,8 @@ const FALLBACK_QUOTED = {
 const FALLBACK_PROFILES = {
  "26d6a946675e603f8de4bf6f9cef442037b70c7eee170ff06ed7673fc34c98f1": {"name":"Noshole","picture":"https://image.nostr.build/54e038ebc87ebfa929b112b36400067037b047d832890203e7ee11c8468aaf31.jpg"},
  "1c963878c06b251a1ce32ce43c9aea9fa8f97a4d718a0852b19f17b6c25afcba": {"name":"Bitcoin FilmFest","picture":"https://m.primal.net/HQwT.png"},
- "f2aa1664ad71db4b47ab403034014d9a767d677f18f761eda3c32b375a4cb498": {"name":"Hummingbird","picture":"assets/avatar.jpg"}
+ "f2aa1664ad71db4b47ab403034014d9a767d677f18f761eda3c32b375a4cb498": {"name":"Hummingbird","picture":"assets/avatar.jpg"},
+ "ede94c98e083fcb3cd8e872de430f02abf7d74ae55d2aa15d268ef13fa3ff95c": {"name":"IndeeHub","picture":""}
 };
 
 /* bech32 encoder — turns hex note ids into note1… links */
@@ -965,6 +1007,21 @@ function refToId(ref){
   return null;
 }
 
+function refToPubkey(ref){
+  const d = b32decode(ref);
+  if (!d) return null;
+  if (d.hrp === 'npub' && d.bytes.length >= 32) return toHex(d.bytes.slice(0, 32));
+  if (d.hrp === 'nprofile'){
+    let i = 0; const b = d.bytes;
+    while (i + 2 <= b.length){
+      const t = b[i], l = b[i + 1];
+      if (t === 0 && l === 32) return toHex(b.slice(i + 2, i + 34));
+      i += 2 + l;
+    }
+  }
+  return null;
+}
+
 /* a note is a reply if it e-tags another note without the 'mention' marker */
 const isReply = e => (e.tags || []).some(t => t[0] === 'e' && t[3] !== 'mention');
 
@@ -986,16 +1043,19 @@ function renderNoteContent(raw, quoted, profiles, nested){
     if (!nested && id && quoted[id]) { quotes.push(quoted[id]); return ''; }
     return `<a class="qlink" href="https://primal.net/e/${ref}" target="_blank" rel="noopener">↳ quoted note</a>`;
   });
-  text = text.replace(/nostr:((nprofile|npub)1[a-z0-9]+)/g,
-    (_, ref) => `<a href="https://primal.net/p/${ref}" target="_blank" rel="noopener">@profile</a>`);
+  text = text.replace(/nostr:((nprofile|npub)1[a-z0-9]+)/g, (_, ref) => {
+    const pk = refToPubkey(ref);
+    const name = pk && profiles[pk] && profiles[pk].name;
+    return `<a href="https://primal.net/p/${ref}" target="_blank" rel="noopener">@${escHtml(name || 'profile')}</a>`;
+  });
   text = text.replace(/\n{3,}/g, '\n\n').trim();
   let html = text ? `<div class="${nested ? 'quote-body' : 'note-body'}">${text}</div>` : '';
   if (quotes.length) html += quotes.map(q => renderQuote(q, quoted, profiles)).join('');
   if (media.length) {
     html += `<div class="${nested ? 'quote-media' : 'note-media'}">` + media.map(m =>
       m.t === 'video'
-        ? `<video src="${m.u}" controls playsinline preload="metadata"></video>`
-        : `<img src="${m.u}" loading="lazy" alt="media from note">`
+        ? `<video src="${m.u}" controls playsinline preload="metadata" onerror="this.outerHTML='&lt;a class=&quot;qlink&quot; href=&quot;${m.u}&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;▶ watch video&lt;/a&gt;'"></video>`
+        : `<img src="${m.u}" loading="lazy" alt="media from note" onerror="this.remove()">`
     ).join('') + `</div>`;
   }
   return html;
@@ -1088,6 +1148,29 @@ async function loadFeed(){
         }
       });
     } catch(_){ /* quotes fall back to links */ }
+  }
+  // resolve @mentions to real names (in notes and inside quoted notes)
+  const mentionPks = new Set();
+  const collectMentions = txt => {
+    for (const m of txt.matchAll(/nostr:((nprofile|npub)1[a-z0-9]+)/g)){
+      const pk = refToPubkey(m[1]);
+      if (pk && !profiles[pk]) mentionPks.add(pk);
+    }
+  };
+  notes.forEach(n => collectMentions(n.content));
+  Object.values(quoted).forEach(q => collectMentions(q.content));
+  if (mentionPks.size){
+    try {
+      const data = await apiCall(["user_infos", {pubkeys: [...mentionPks]}]);
+      data.forEach(e => {
+        if (e && e.kind === 0){
+          try {
+            const p = JSON.parse(e.content);
+            if (!profiles[e.pubkey]) profiles[e.pubkey] = {name: p.display_name || p.name || '', picture: p.picture || ''};
+          } catch(_){}
+        }
+      });
+    } catch(_){ /* mentions fall back to @profile */ }
   }
   renderNotes(notes, live, quoted, profiles);
 }
