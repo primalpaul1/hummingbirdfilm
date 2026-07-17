@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Watch Hummingbird — The Bitcoin Jungle Story</title>
+<meta name="description" content="Watch Hummingbird: The Bitcoin Jungle Story on YouTube, Rumble, IndeeHub, or download the film.">
+<meta property="og:title" content="Watch Hummingbird — The Bitcoin Jungle Story">
+<meta property="og:description" content="Stream the film on YouTube, Rumble, IndeeHub, or download it.">
+<meta property="og:image" content="assets/cover.jpg">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png?v=2">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/icon-192.png?v=2">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=2">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Yellowtail&family=Alegreya+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a120d;
+  --bg2:#0e1811;
+  --line:rgba(196,178,134,.14);
+  --gold:#f0b429;
+  --gold-bright:#ffc94a;
+  --cream:#ece4d0;
+  --cream-dim:#b9b09a;
+  --shadow:0 30px 80px -20px rgba(0,0,0,.75);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;overflow-x:clip}
+body{
+  background:var(--bg);color:var(--cream);
+  font-family:'Alegreya Sans',sans-serif;font-size:18px;line-height:1.6;
+  overflow-x:hidden;min-height:100vh;
+}
+::selection{background:var(--gold);color:#141005}
+body::before{
+  content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(1200px 800px at 85% -10%, rgba(240,180,41,.06), transparent 60%),
+    radial-gradient(1000px 900px at -15% 30%, rgba(52,94,58,.16), transparent 60%),
+    radial-gradient(900px 700px at 110% 90%, rgba(38,74,48,.13), transparent 60%);
+}
+.grain{
+  position:fixed;inset:-50%;z-index:96;pointer-events:none;opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* nav */
+nav{
+  position:sticky;top:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:16px clamp(20px,5vw,56px);
+  background:rgba(9,15,11,.86);backdrop-filter:blur(14px);box-shadow:0 1px 0 var(--line);
+}
+.wordmark{font-family:'Yellowtail',cursive;font-size:28px;color:var(--gold);text-decoration:none;line-height:1;text-shadow:0 2px 20px rgba(240,180,41,.35)}
+.back{
+  color:var(--cream-dim);text-decoration:none;font-size:14px;letter-spacing:.16em;text-transform:uppercase;font-weight:500;
+  display:inline-flex;align-items:center;gap:8px;transition:color .25s;
+}
+.back:hover{color:var(--gold-bright)}
+
+/* hero */
+main{position:relative;z-index:1;max-width:960px;margin:0 auto;padding:clamp(40px,7vh,80px) clamp(20px,5vw,56px) 80px}
+.eyebrow{font-family:'Yellowtail',cursive;font-size:clamp(26px,3vw,36px);color:var(--gold);margin-bottom:4px;text-align:center}
+h1{
+  font-family:'Fraunces',serif;font-weight:440;font-size:clamp(38px,6vw,68px);line-height:1.02;letter-spacing:-.01em;
+  text-align:center;margin-bottom:12px;text-wrap:balance;
+}
+.sub{text-align:center;color:var(--cream-dim);font-size:clamp(17px,1.5vw,20px);max-width:560px;margin:0 auto clamp(34px,5vh,50px)}
+
+/* player */
+.player{
+  position:relative;border-radius:18px;overflow:hidden;box-shadow:var(--shadow);
+  border:1px solid rgba(240,180,41,.2);background:#000;aspect-ratio:16/9;margin-bottom:14px;
+}
+.player iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.player-cap{text-align:center;color:var(--cream-dim);font-size:14px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:clamp(40px,6vh,60px)}
+.player-cap b{color:var(--gold);font-weight:700}
+
+/* platforms */
+.watch-head{text-align:center;margin-bottom:26px}
+.watch-head .k{font-family:'Yellowtail',cursive;font-size:26px;color:var(--gold)}
+.watch-head h2{font-family:'Fraunces',serif;font-weight:440;font-size:clamp(26px,3vw,36px)}
+.platforms{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;max-width:720px;margin:0 auto}
+@media(max-width:560px){.platforms{grid-template-columns:1fr}}
+.plat{
+  display:flex;align-items:center;gap:16px;padding:20px 22px;border-radius:16px;text-decoration:none;
+  background:linear-gradient(160deg, rgba(22,36,27,.55), rgba(14,24,17,.35));border:1px solid var(--line);
+  transition:transform .3s cubic-bezier(.2,.7,.2,1),border-color .3s,background .3s;
+}
+.plat:hover{transform:translateY(-4px);border-color:rgba(240,180,41,.5)}
+.plat.soon{opacity:.5;pointer-events:none}
+.plat-icon{
+  flex:none;width:52px;height:52px;border-radius:13px;display:flex;align-items:center;justify-content:center;
+  background:rgba(8,14,10,.5);border:1px solid var(--line);
+}
+.plat-icon svg{width:28px;height:28px}
+.plat-meta .n{font-family:'Fraunces',serif;font-size:20px;color:var(--cream);line-height:1.2}
+.plat-meta .d{font-size:14px;color:var(--cream-dim);margin-top:2px}
+.plat.primary{background:linear-gradient(160deg, rgba(240,180,41,.14), rgba(22,36,27,.4));border-color:rgba(240,180,41,.4)}
+.plat .arrow{margin-left:auto;color:var(--gold);opacity:.7;transition:transform .3s,opacity .3s}
+.plat:hover .arrow{transform:translateX(4px);opacity:1}
+.soon-tag{margin-left:auto;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--cream-dim);border:1px solid var(--line);border-radius:99px;padding:4px 10px}
+
+footer{position:relative;z-index:1;border-top:1px solid var(--line);padding:40px 20px;text-align:center;background:#070d09;color:var(--cream-dim);font-size:14px}
+footer a{color:var(--gold)}
+</style>
+</head>
+<body>
+<div class="grain" aria-hidden="true"></div>
+
+<nav>
+  <a class="wordmark" href="index.html">Hummingbird</a>
+  <a class="back" href="index.html">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+    Home
+  </a>
+</nav>
+
+<main>
+  <div class="eyebrow">now streaming</div>
+  <h1>Watch Hummingbird</h1>
+  <p class="sub">The Bitcoin Jungle Story — stream it free, wherever you watch.</p>
+
+  <div class="player">
+    <iframe src="https://www.youtube-nocookie.com/embed/63WbA7slCdg?rel=0"
+      title="Hummingbird — The Bitcoin Jungle Story"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allowfullscreen></iframe>
+  </div>
+  <div class="player-cap">Full film &nbsp;·&nbsp; <b>watch free on YouTube</b></div>
+
+  <div class="watch-head">
+    <div class="k">more ways to watch</div>
+    <h2>Choose your platform</h2>
+  </div>
+  <div class="platforms" id="platforms"></div>
+</main>
+
+<footer>
+  Hummingbird · The Bitcoin Jungle Story · filmed in Uvita, Costa Rica ·
+  <a href="index.html">back to home</a>
+</footer>
+
+<script>
+/* =============================================================
+   WATCH PLATFORMS — set url to go live; null = "coming soon".
+============================================================= */
+const PLATFORMS = [
+  {
+    name: "YouTube", desc: "Watch free, full film", primary: true,
+    url: "https://www.youtube.com/watch?v=63WbA7slCdg",
+    icon: `<svg viewBox="0 0 24 24"><path fill="#ff0000" d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8z"/><path fill="#fff" d="M9.6 15.6V8.4l6.2 3.6z"/></svg>`,
+  },
+  {
+    name: "Rumble", desc: "Watch on Rumble",
+    url: null,
+    icon: `<svg viewBox="0 0 24 24" fill="#85c742"><path d="M12 2.5c1.9 0 3.6 1.2 5 2.9 1.3 1.6 2.4 3.7 3.2 5.6.4 1 .4 2 0 3-.8 1.9-1.9 4-3.2 5.6-1.4 1.7-3.1 2.9-5 2.9s-3.6-1.2-5-2.9c-1.3-1.6-2.4-3.7-3.2-5.6-.4-1-.4-2 0-3C4.6 9.1 5.7 7 7 5.4 8.4 3.7 10.1 2.5 12 2.5zm-2 5.9v7.2l6-3.6z"/></svg>`,
+  },
+  {
+    name: "IndeeHub", desc: "Value-for-value · 65 sats/min",
+    url: "https://indeehub.studio/film/hummingbird",
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="#f0b429" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M10 9.2v5.6l5-2.8z" fill="#f0b429" stroke="none"/></svg>`,
+  },
+  {
+    name: "Download", desc: "Take the film with you",
+    url: null,
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="#f0b429" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 11l5 5 5-5M4.5 20.5h15"/></svg>`,
+  },
+];
+
+const grid = document.getElementById('platforms');
+PLATFORMS.forEach(p => {
+  const live = !!p.url;
+  const el = document.createElement(live ? 'a' : 'div');
+  el.className = 'plat' + (p.primary ? ' primary' : '') + (live ? '' : ' soon');
+  if (live){ el.href = p.url; el.target = '_blank'; el.rel = 'noopener'; }
+  el.innerHTML = `
+    <span class="plat-icon">${p.icon}</span>
+    <span class="plat-meta">
+      <span class="n">${p.name}</span>
+      <span class="d">${p.desc}</span>
+    </span>
+    ${live
+      ? `<svg class="arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>`
+      : `<span class="soon-tag">Soon</span>`}
+  `;
+  grid.appendChild(el);
+});
+</script>
+</body>
+</html>
